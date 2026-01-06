@@ -1,0 +1,13 @@
+# 环境变量（最重要的屏蔽项！）
+.env
+.env.local
+.env*.local
+
+# 开发依赖和日志
+node_modules/
+*.log
+.DS_Store
+
+# 构建产物
+dist/
+build/
