@@ -1,9 +1,12 @@
-// Supabase 配置 - 从环境变量安全读取
-const SUPABASE_CONFIG = {
-    URL: import.meta.env.VITE_SUPABASE_URL,
-    API_KEY: import.meta.env.VITE_SUPABASE_ANON_KEY
-};
+// 原代码修改为：
+import SUPABASE_CONFIG from './config';
 
+// 或者直接使用环境变量
+import { createClient } from '@supabase/supabase-js';
+
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+const supabase = createClient(supabaseUrl, supabaseKey);
 // 开发环境下的友好提示
 if (import.meta.env.DEV) {
     if (!SUPABASE_CONFIG.URL || !SUPABASE_CONFIG.API_KEY) {
